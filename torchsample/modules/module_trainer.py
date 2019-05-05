@@ -378,7 +378,7 @@ class ModuleTrainer(object):
                         metrics_logs = self.metric_container(output_batch, target_batch)
                         batch_logs.update(metrics_logs)
 
-                    batch_logs['loss'] = loss.data[0]
+                    batch_logs['loss'] = loss.data[0].item()
                     callback_container.on_batch_end(batch_idx, batch_logs)
 
                 epoch_logs.update(self.history.batch_metrics)
